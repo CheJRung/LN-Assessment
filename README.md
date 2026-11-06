@@ -6,7 +6,7 @@ LIMA (Lymph Node Immune and Metastasis Assessment) is a computational pathology 
 
 ## Available code
 
-This release provides a standalone demo for single-image germinal center instance segmentation. Full pipeline code will be released separately.
+This release provides a standalone demo for single-image germinal center instance segmentation and a pretrained model package. Full pipeline code will be released separately.
 
 ## Installation and model preparation
 
@@ -16,7 +16,13 @@ Install the dependencies from the repository root:
 python -m pip install -r requirements.txt
 ```
 
-Model weights are not included. Prepare a fine-tuned Mask2Former checkpoint for the single `center` class with the following files:
+Download [demo.zip](https://github.com/CheJRung/LN-Assessment/releases/download/v0.1.0/demo.zip), place it in the repository root, and extract it:
+
+```bash
+python -m zipfile -e demo.zip .
+```
+
+The package contains the model checkpoint and preprocessing configuration:
 
 ```text
 best/
@@ -25,7 +31,7 @@ best/
 └── model.safetensors
 ```
 
-Place the checkpoint in `best/`, or use `--model` to specify another local checkpoint directory.
+Use `--model` to specify another local checkpoint directory.
 
 ## Usage
 
@@ -43,5 +49,5 @@ python demo.py examples/inputs/2.png --model path/to/checkpoint --output demo_ou
 
 | Input | Prediction |
 | --- | --- |
-| ![Input 1](examples/inputs/1.png) | ![Prediction 1](examples/outputs/1.png) |
-| ![Input 2](examples/inputs/2.png) | ![Prediction 2](examples/outputs/2.png) |
+| <a href="examples/inputs/1.png"><img src="examples/inputs/1.png" alt="Input 1" width="400"></a> | <a href="examples/outputs/1.png"><img src="examples/outputs/1.png" alt="Prediction 1" width="400"></a> |
+| <a href="examples/inputs/2.png"><img src="examples/inputs/2.png" alt="Input 2" width="400"></a> | <a href="examples/outputs/2.png"><img src="examples/outputs/2.png" alt="Prediction 2" width="400"></a> |
