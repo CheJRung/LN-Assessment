@@ -22,17 +22,6 @@ Download [demo.zip](https://github.com/CheJRung/LN-Assessment/releases/download/
 python -m zipfile -e demo.zip .
 ```
 
-The package contains the model checkpoint and preprocessing configuration:
-
-```text
-best/
-├── config.json
-├── preprocessor_config.json
-└── model.safetensors
-```
-
-Use `--model` to specify another local checkpoint directory.
-
 ## Usage
 
 Run an example with the default model directory:
