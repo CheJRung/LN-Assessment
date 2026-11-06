@@ -47,7 +47,18 @@ Specify a model directory and output path:
 python demo.py examples/inputs/2.png --model path/to/checkpoint --output demo_outputs/2.png
 ```
 
-| Input | Prediction |
-| --- | --- |
-| <a href="examples/inputs/1.png"><img src="examples/inputs/1.png" alt="Input 1" width="400"></a> | <a href="examples/outputs/1.png"><img src="examples/outputs/1.png" alt="Prediction 1" width="400"></a> |
-| <a href="examples/inputs/2.png"><img src="examples/inputs/2.png" alt="Input 2" width="400"></a> | <a href="examples/outputs/2.png"><img src="examples/outputs/2.png" alt="Prediction 2" width="400"></a> |
+<table>
+  <thead>
+    <tr><th width="50%">Input</th><th width="50%">Prediction</th></tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td width="50%"><a href="examples/inputs/1.png"><img src="examples/inputs/1.png" alt="Input 1" width="400"></a></td>
+      <td width="50%"><a href="examples/outputs/1.png"><img src="examples/outputs/1.png" alt="Prediction 1" width="400"></a></td>
+    </tr>
+    <tr>
+      <td width="50%"><a href="examples/inputs/2.png"><img src="examples/inputs/2.png" alt="Input 2" width="400"></a></td>
+      <td width="50%"><a href="examples/outputs/2.png"><img src="examples/outputs/2.png" alt="Prediction 2" width="400"></a></td>
+    </tr>
+  </tbody>
+</table>
