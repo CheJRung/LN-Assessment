@@ -1,0 +1,8 @@
+torch==2.8.0
+torchvision==0.23.0
+transformers==4.57.1
+numpy
+opencv-python-headless
+Pillow
+pycocotools==2.0.11
+scipy

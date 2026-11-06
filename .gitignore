@@ -1,0 +1,10 @@
+__pycache__/
+.venv/
+.cache/
+.deps/
+best/
+runs/
+demo_outputs/
+*.safetensors
+*.pt
+*.pth
