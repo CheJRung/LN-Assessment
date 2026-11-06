@@ -24,16 +24,8 @@ python -m zipfile -e demo.zip .
 
 ## Usage
 
-Run an example with the default model directory:
-
 ```bash
-python demo.py examples/inputs/1.png
-```
-
-Specify a model directory and output path:
-
-```bash
-python demo.py examples/inputs/2.png --model path/to/checkpoint --output demo_outputs/2.png
+python demo.py examples/inputs/2.png --model model --output demo_outputs/2.png
 ```
 
 <table>

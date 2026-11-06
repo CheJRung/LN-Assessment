@@ -1,11 +1,5 @@
 import argparse
-import os
 from pathlib import Path
-
-PROJECT = Path(__file__).resolve().parent
-SCORE_THRESHOLD = 0.75
-
-os.environ.setdefault("XDG_CACHE_HOME", str(PROJECT / ".cache"))
 
 import cv2
 import numpy as np
@@ -15,6 +9,8 @@ from scipy.sparse.csgraph import connected_components
 import torch
 from torch.nn import functional as F
 from transformers import Mask2FormerForUniversalSegmentation, Mask2FormerImageProcessor
+
+SCORE_THRESHOLD = 0.75
 
 
 def get_masks(output, size):
@@ -50,13 +46,11 @@ def merge_masks(masks):
 def main():
     parser = argparse.ArgumentParser(description="Mask2Former demo")
     parser.add_argument("image", type=Path, help="Input image")
-    parser.add_argument("--model", type=Path, default=PROJECT / "best", help="Model directory")
-    parser.add_argument("--output", type=Path, help="Output PNG")
+    parser.add_argument("--model", type=Path, required=True, help="Model directory")
+    parser.add_argument("--output", type=Path, required=True, help="Output PNG")
     args = parser.parse_args()
 
-    source = args.image.resolve()
-    output = (args.output or PROJECT / "demo_outputs" / f"{source.stem}_contour.png").resolve()
-    with Image.open(source) as original:
+    with Image.open(args.image) as original:
         image = original.convert("RGB")
 
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
@@ -79,10 +73,10 @@ def main():
         )
         cv2.drawContours(overlay, contours, -1, (255, 0, 0), thickness=3)
 
-    output.parent.mkdir(parents=True, exist_ok=True)
-    Image.fromarray(overlay).save(output)
+    args.output.parent.mkdir(parents=True, exist_ok=True)
+    Image.fromarray(overlay).save(args.output)
     print(f"Instances: {len(masks)}")
-    print(f"Saved to {output}")
+    print(f"Saved to {args.output}")
 
 
 if __name__ == "__main__":
