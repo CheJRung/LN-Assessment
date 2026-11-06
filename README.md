@@ -1,6 +1,6 @@
 # LIMA
 
-## Project introduction
+## Introduction
 
 LIMA (Lymph Node Immune and Metastasis Assessment) is a computational pathology framework for lymph node analysis. It combines lymph node segmentation, metastasis classification, and germinal center quantification.
 
