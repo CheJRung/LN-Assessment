@@ -44,7 +44,7 @@ def merge_masks(masks):
 
 
 def main():
-    parser = argparse.ArgumentParser(description="Mask2Former demo")
+    parser = argparse.ArgumentParser(description="Demo")
     parser.add_argument("image", type=Path, help="Input image")
     parser.add_argument("--model", type=Path, required=True, help="Model directory")
     parser.add_argument("--output", type=Path, required=True, help="Output PNG")
